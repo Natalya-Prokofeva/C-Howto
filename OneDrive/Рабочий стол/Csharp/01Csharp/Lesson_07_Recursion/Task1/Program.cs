@@ -1,13 +1,14 @@
-﻿
+﻿// Рекурсивная функция вывода чисел от 1 до N
 
-string abc = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-string result = string.Empty;
-
-for (int i = 0; i < abc.Length; i++)
-    if (char.IsUpper(abc[i]))
-        result += char.ToLower(abc[i]);
-    else
-        result += char.ToUpper(abc[i]);
-
-Console.WriteLine(result);
-Console.ReadKey(true);
+void OpenMatreshka(int size)
+{
+    Console.WriteLine($"Openning matreshka of size {size}..");
+    if (size == 1)
+    {
+        Console.WriteLine($"Reached the smallest matreshka!");
+        return;
+    }
+    
+    OpenMatreshka(size-1);
+}
+OpenMatreshka(5);

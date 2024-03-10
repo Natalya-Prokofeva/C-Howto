@@ -1,29 +1,25 @@
 ﻿// 3. Считать строку с консоли, состоящую из латинских
 //    букв в нижнем регистре. Выяснить, сколько среди
 //    введённых букв гласных.
-
-string vowelsChars = "aoeiuy";
-
-int CountVowelsCharInString(string str)
+public class Task3
 {
-    int countVowelsChar = 0;
-    // foreach (char ch in str) // первое решение через конкретные буквы
-    // {
-    //     if (vowelsChars.Contains(ch))
-    //     {
-    //         countVowelsChar++;
-    //     }
-    // }
-    // return countVowelsChar;
-    for (int i = 0; i < str.Length; i++) // решение через индексы
+    public static void Main(string[] args)
     {
-        if (vowelsChars.Contains(str[i]))
-        {
-            countVowelsChar++;
-        }
+        // Входная строка для проверки
+        string input = "шалаш";
+        // Вызов метода для проверки, является ли строка палиндромом
+        bool isPalindrome = IsPalindrome(input);
+        // Вывод результата
+        Console.WriteLine(isPalindrome ? "Да" : "Нет");
     }
-    return countVowelsChar;
+    // Метод для проверки, является ли строка палиндромом
+    public static bool IsPalindrome(string str)
+    {
+        // Нормализация строки путем удаления не буквенно-цифровых
+        //символов и приведения к нижнему регистру
+    string normalized = new
+    string(str.Where(char.IsLetterOrDigit).ToArray()).ToLower();
+        // Сравнение строки с ее перевернутым вариантом
+        return normalized.SequenceEqual(normalized.Reverse());
+    }
 }
-
-string inputString = Console.ReadLine()!;
-Console.Write(CountVowelsCharInString(inputString));
